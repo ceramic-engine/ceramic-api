@@ -1,0 +1,54 @@
+app:
+    package: mycompany.ceramic-docs
+    name: ceramic-docs
+    displayName: ceramic-docs
+    author: My Company
+    version: '1.0'
+
+    libs:
+        - dox
+
+    defines:
+        - ceramic_no_skip
+        # - tracker_no_enum_args_matching
+    
+    # hxml: |
+    #     --macro include('ceramic')
+    
+    if use_arcade:
+        +plugins:
+            - arcade
+    
+    if use_nape:
+        +plugins:
+            - nape
+    
+    if use_script:
+        +plugins:
+            - script
+    
+    if use_spine:
+        +plugins:
+            - spine
+        +libs:
+            - spine-hx
+    
+    if use_sprite:
+        +plugins:
+            - sprite
+    
+    if use_tilemap:
+        +plugins:
+            - tilemap
+    
+    if use_ui:
+        +plugins:
+            - ui
+    
+    if use_arcade:
+        +plugins:
+            - arcade
+
+    if web:
+        +defines:
+            - ceramic_use_electron

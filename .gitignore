@@ -1,0 +1,7 @@
+.DS_Store
+.haxelib
+/out
+/completion.hxml
+/docs
+/node_modules
+/project
