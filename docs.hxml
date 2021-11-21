@@ -4,8 +4,7 @@
 -cp /Users/jeremyfa/Developer/ceramic/runtime/src
 -cp /Users/jeremyfa/Developer/ceramic/plugins/unity/runtime/src
 -cp /Users/jeremyfa/Developer/ceramic-docs/gen
--cp /Users/jeremyfa/Developer/ceramic/plugins/http/runtime/src
--lib dox
+-lib dox:1.6.0
 -lib format:3.4.2
 -lib hscript:2.4.0
 -lib polyline
@@ -25,9 +24,10 @@
 -D tracker_custom_backend=ceramic.TrackerBackend
 -D tracker_custom_reusable_array=ceramic.ReusableArray
 -D ceramic_no_skip
+-D no-deprecation-warnings
 -D backend=unity
 -D unity=backend
--D ceramic=0.7.12-07d51aa8
+-D ceramic=0.8.5-aeff2958
 -D assets_path=/Users/jeremyfa/Developer/ceramic-docs/assets
 -D ceramic_assets_path=/Users/jeremyfa/Developer/ceramic/tools/assets
 -D ceramic_root_path=/Users/jeremyfa/Developer/ceramic
@@ -35,7 +35,7 @@
 -D HXCPP_STACK_TRACE
 -D variant=standard
 -D standard=variant
--D ceramic_plugins_assets_paths="[\"/Users/jeremyfa/Developer/ceramic/plugins/unity/assets\"]"
+-D ceramic_plugins_assets_paths="[\"/Users/jeremyfa/Developer/ceramic/plugins/clay/assets\",\"/Users/jeremyfa/Developer/ceramic/plugins/headless/assets\",\"/Users/jeremyfa/Developer/ceramic/plugins/unity/assets\"]"
 -D HXCPP_CHECK_POINTER
 -D safeMode
 -D absolute-path
@@ -46,8 +46,8 @@
 -cs bin
 -D dll
 -D no-root
--D ceramic_texture_stamp_delayed
--D net-std=/Applications/Unity/Hub/Editor/2020.2.0f1/Unity.app/Contents/Mono/lib/mono/unity
+-D ceramic_pending_finish_draw
+-D net-std=/Applications/Unity/Hub/Editor/2020.3.20f1/Unity.app/Contents/Mono/lib/mono/unity
 -D net-ver=20
 -D completion
 -D display

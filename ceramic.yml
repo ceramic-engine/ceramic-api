@@ -6,48 +6,64 @@ app:
     version: '1.0'
 
     libs:
-        - dox
+        - dox: 1.6.0
 
     defines:
         - ceramic_no_skip
+        - no-deprecation-warnings
         # - tracker_no_enum_args_matching
-    
+
     # hxml: |
     #     --macro include('ceramic')
-    
+
     if use_arcade:
         +plugins:
             - arcade
-    
+
     if use_nape:
         +plugins:
             - nape
-    
+
     if use_script:
         +plugins:
             - script
-    
+
     if use_spine:
         +plugins:
             - spine
-        +libs:
-            - spine-hx
-    
+
     if use_sprite:
         +plugins:
             - sprite
-    
+
     if use_tilemap:
         +plugins:
             - tilemap
-    
+
     if use_ui:
         +plugins:
             - ui
-    
+
     if use_arcade:
         +plugins:
             - arcade
+
+    if use_dialogs:
+        +plugins:
+            - dialogs
+
+    if use_elements:
+        +plugins:
+            - ui
+            - elements
+
+    if use_gif:
+        +plugins:
+            - gif
+
+    if use_imgui:
+        +plugins:
+            - imgui
 
     if web:
         +defines:

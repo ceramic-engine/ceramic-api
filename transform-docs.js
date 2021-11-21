@@ -14,10 +14,10 @@ for (file of files) {
 
     var html = fs.readFileSync(file, 'utf8');
 
-    var index = html.indexOf('</style>');
-    if (index != -1) {
-        html = html.substring(0, index) + '}' + html.substring(index);
-    }
+    // var index = html.indexOf('</style>');
+    // if (index != -1) {
+    //     html = html.substring(0, index) + '}' + html.substring(index);
+    // }
 
     var dom = cheerio.load(html);
 
@@ -65,13 +65,13 @@ for (file of files) {
 
             eventsDom('.fields').append('<h4>' + inheritedFromDom.html() + '</h4>');
             eventsDom('.fields').append('<div class="filling-fields" style="display:none"></div>');
-            
+
             for (eventField of fields) {
                 eventsDom('.fields .filling-fields').append(eventField);
             }
             eventsDom('.fields .filling-fields').removeClass('filling-fields');
         }
-        
+
         dom('.inherited-fields').prepend(eventsDom.html().split('_dox_event_').join(''));
         dom('.inherited-fields').prepend('<h3 class="section">Inherited Events</h3>');
 
@@ -133,6 +133,9 @@ for (file of files) {
                     dom(el).text(prefix + filtered.join(', '));
                 }
                 else if (hasPlugin) {
+                    if (items.length == 2 && items.indexOf('elements plugin') != -1 && items.indexOf('ui plugin') != -1) {
+                        items = ['ui plugin'];
+                    }
                     dom(el).text('Available with ' + items.join(', '));
                 }
                 else {

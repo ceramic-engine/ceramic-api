@@ -33,6 +33,22 @@ ceramic clay setup web --variant use_nape
 ceramic clay hxml web --variant use_nape > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/nape-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
 
+ceramic clay setup web --variant use_imgui
+ceramic clay hxml web --variant use_imgui > docs.hxml
+$(ceramic haxe) docs.hxml --xml ../../../docs/imgui-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
+
+ceramic clay setup web --variant use_dialogs
+ceramic clay hxml web --variant use_dialogs > docs.hxml
+$(ceramic haxe) docs.hxml --xml ../../../docs/dialogs-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
+
+ceramic clay setup web --variant use_gif
+ceramic clay hxml web --variant use_gif > docs.hxml
+$(ceramic haxe) docs.hxml --xml ../../../docs/gif-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
+
+ceramic clay setup web --variant use_elements
+ceramic clay hxml web --variant use_elements > docs.hxml
+$(ceramic haxe) docs.hxml --xml ../../../docs/elements-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
+
 ceramic clay setup web --variant use_script
 ceramic clay hxml web --variant use_script > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/script-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
