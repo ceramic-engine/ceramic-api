@@ -1,15 +1,17 @@
 #!/bin/bash
 set -e
-set -o xtrace
 
 cd ${0%/*}
 
 rm -rf ./docs
 
+echo "ceramic clay setup web"
 ceramic clay setup web
+echo "ceramic clay hxml web > docs.hxml"
 ceramic clay hxml web > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/clay-web.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
 
+echo "ceramic clay setup web --variant use_tilemap"
 ceramic clay setup web --variant use_tilemap
 ceramic clay hxml web --variant use_tilemap > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/tilemap-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation

@@ -27,7 +27,7 @@
 -D no-deprecation-warnings
 -D backend=unity
 -D unity=backend
--D ceramic=0.9.0-9675970f
+-D ceramic=0.9.1-b18bc060
 -D assets_path=/Users/jeremyfa/Developer/ceramic-api/assets
 -D ceramic_assets_path=/Users/jeremyfa/Developer/ceramic/tools/assets
 -D ceramic_root_path=/Users/jeremyfa/Developer/ceramic
