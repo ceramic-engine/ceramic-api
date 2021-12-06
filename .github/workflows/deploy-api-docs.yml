@@ -18,6 +18,10 @@ jobs:
           owner: ceramic-engine
           repo: ceramic
           excludes: prerelease, draft
+      - name: List files
+        working-directory: ceramic-engine
+        run: |
+          ls
       - name: Setup haxe
         working-directory: ceramic-engine
         run: |
