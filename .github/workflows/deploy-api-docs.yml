@@ -12,6 +12,14 @@ jobs:
   deploy-api-docs:
     runs-on: macos-10.15
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.16.3'
+      - name: Install packages
+        working-directory: .
+        run: |
+          npm install
       - name: Download Ceramic
         working-directory: .
         run: |
