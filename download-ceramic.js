@@ -45,7 +45,7 @@ function cleanup() {
 }
 
 function downloadFile(url, path) {
-    childProcess.execFileSync('curl', ['-L', '-o', path, url]);
+    childProcess.execFileSync('curl', ['--silent', '-L', '-o', path, url]);
 }
 
 function unzipFile(source, targetPath) {

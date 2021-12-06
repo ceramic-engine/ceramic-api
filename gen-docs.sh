@@ -53,9 +53,15 @@ ceramic clay setup web --variant use_script
 ceramic clay hxml web --variant use_script > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/script-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
 
+if [ "$(uname)" == "Darwin" ]; then
 ceramic clay setup mac
 ceramic clay hxml mac > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/clay-native.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+ceramic clay setup linux
+ceramic clay hxml linux > docs.hxml
+$(ceramic haxe) docs.hxml --xml ../../../docs/clay-native.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
+fi
 
 ceramic headless setup node
 ceramic headless hxml node > docs.hxml
