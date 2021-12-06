@@ -5,13 +5,10 @@ cd ${0%/*}
 
 rm -rf ./docs
 
-echo "ceramic clay setup web"
 ceramic clay setup web
-echo "ceramic clay hxml web > docs.hxml"
 ceramic clay hxml web > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/clay-web.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
 
-echo "ceramic clay setup web --variant use_tilemap"
 ceramic clay setup web --variant use_tilemap
 ceramic clay hxml web --variant use_tilemap > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/tilemap-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
@@ -74,6 +71,6 @@ ceramic unity setup unity
 ceramic unity hxml unity > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/unity.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
 
-$(ceramic haxelib) run dox -i ./docs --output-path docs --keep-field-order --exclude 'zpp_nape|microsoft|unityengine|timestamp|stb|sys|spec|sdl|polyline|poly2tri|opengl|openal|ogg|js|hsluv|hscript|glew|format|earcut|cs|cpp|com|assets|ceramic.scriptable|ceramic.macros' --title 'Ceramic API'
+$(ceramic haxelib) run dox -i ./docs --output-path docs --keep-field-order --exclude 'zpp_nape|microsoft|unityengine|fuzzaldrin|gif|timestamp|stb|sys|spec|sdl|polyline|poly2tri|opengl|openal|ogg|js|hsluv|hscript|glew|format|earcut|cs|cpp|com|assets|ceramic.scriptable|ceramic.macros' --title 'Ceramic API'
 
 $(ceramic node) transform-docs.js
