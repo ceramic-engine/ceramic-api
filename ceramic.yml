@@ -16,6 +16,10 @@ app:
     # hxml: |
     #     --macro include('ceramic')
 
+    if unity:
+        +defines:
+            - ceramic_unity_default_net_std
+
     if use_arcade:
         +plugins:
             - arcade
