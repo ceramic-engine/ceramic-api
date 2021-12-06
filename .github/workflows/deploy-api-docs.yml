@@ -19,7 +19,7 @@ jobs:
           repo: ceramic
           excludes: prerelease, draft
       - name: List files
-        working-directory: ceramic-engine
+        working-directory: .
         run: |
           ls
       - name: Setup haxe
