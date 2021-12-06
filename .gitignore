@@ -2,6 +2,7 @@
 .haxelib
 /out
 /completion.hxml
+/docs.hxml
 /docs
 /node_modules
 /project
