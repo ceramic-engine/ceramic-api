@@ -1,4 +1,4 @@
-# ceramic-docs
+# ceramic-api
 
 A ceramic project used to generate ceramic API docs.
 
