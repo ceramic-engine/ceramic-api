@@ -1,5 +1,5 @@
 {
-    "window.title": "${activeEditorShort} — ceramic-docs",
+    "window.title": "${activeEditorShort} — api-docs",
     "haxe.configurations": [
         [
             "completion.hxml"

@@ -37,3 +37,13 @@ jobs:
         working-directory: .
         run: |
           ./gen-docs.sh
+      - name: Add .nojekyll
+        working-directory: .
+        run: |
+          touch docs/.nojekyll
+      - name: Deploy to Github Pages
+        uses: ceramic-engine/actions-gh-pages@v1.1.0
+        env:
+          PUBLISH_DIR: docs
+          PUBLISH_BRANCH: gh-pages
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
