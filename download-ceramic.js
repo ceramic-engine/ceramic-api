@@ -19,11 +19,11 @@ async function resolveLatestRelease() {
     var res = await axios.get('https://api.github.com/repos/ceramic-engine/ceramic/releases', { responseType: 'json' });
     var releases = res.data;
 
-    for (release of releases) {
+    for (var release of releases) {
 
         if (release.assets != null) {
             var assets = release.assets;
-            for (asset of assets) {
+            for (var asset of assets) {
                 if (asset.name == 'ceramic-'+platform+'.zip') {
                     return release;
                 }
@@ -56,10 +56,10 @@ cleanup();
     var targetTag = releaseInfo.tag_name;
     var ceramicZipPath = 'ceramic.zip';
     var ceramicArchiveUrl = 'https://github.com/ceramic-engine/ceramic/releases/download/'+targetTag+'/ceramic-'+platform+'.zip';
-    
+
     console.log('Download ceramic archive: ' + ceramicArchiveUrl);
     fs.writeFileSync(ceramicZipPath, await download(ceramicArchiveUrl));
-    
+
     console.log('Unzip...');
     unzipFile(ceramicZipPath, 'ceramic');
 
