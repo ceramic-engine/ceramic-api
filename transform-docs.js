@@ -6,9 +6,17 @@
 const cheerio = require('cheerio');
 const glob = require('glob');
 const fs = require('fs');
+const path = require('path');
 const { trace } = require('console');
 
 var files = glob.sync(__dirname + '/docs/**/*.html');
+
+// Compute ceramic paths to test
+var ceramicSourcePaths = glob.sync(__dirname + '/ceramic/plugins/*');
+for (var i = 0; i < ceramicSourcePaths.length; i++) {
+    ceramicSourcePaths[i] = path.join(ceramicSourcePaths[i].substring((__dirname + '/ceramic/').length), 'runtime/src');
+}
+ceramicSourcePaths.unshift('runtime/src');
 
 for (file of files) {
 
@@ -26,6 +34,33 @@ for (file of files) {
     var inheritedEventFields = {};
 
     dom('.sidebar-nav > .dropdown').remove();
+
+    dom('.page-header > h1').each(function(i, el) {
+
+        var sourceLink = null;
+        var relativePath = file.substring(path.join(__dirname, 'docs').length);
+        if (relativePath.startsWith('/') || relativePath.startsWith('\\'))
+            relativePath = relativePath.substring(1);
+        relativePath = relativePath.split('\\').join('/');
+        if (relativePath.endsWith('.html')) {
+            relativePath = relativePath.substring(0, relativePath.length - 5) + '.hx';
+            if (relativePath.startsWith('ceramic/') || relativePath.startsWith('backend/') || relativePath.startsWith('elements/')) {
+                for (sourcePath of ceramicSourcePaths) {
+                    if (fs.existsSync(path.join(__dirname, 'ceramic', sourcePath, relativePath))) {
+                        sourceLink = 'https://github.com/' + path.join('ceramic-engine/ceramic/tree/master', sourcePath, relativePath);
+                        break;
+                    }
+                }
+            }
+            else if (relativePath.startsWith('clay/')) {
+                if (fs.existsSync(path.join(__dirname, 'ceramic/git/clay/src', relativePath))) {
+                    sourceLink = 'https://github.com/' + path.join('ceramic-engine/clay/tree/main/src', relativePath);
+                }
+            }
+            if (sourceLink != null)
+                dom(el).before('<h4><small>[&nbsp;<a href="' + sourceLink + '">view source</a>&nbsp;]</h4></small>');
+        }
+    });
 
     dom('.inherited-fields span.identifier').each(function(i, el) {
         var text = dom(el).text().trim();

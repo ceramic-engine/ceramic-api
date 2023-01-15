@@ -2,7 +2,7 @@
   "name": "ceramic-docs",
   "version": "1.0.0",
   "description": "",
-  "main": "transform-html.js",
+  "main": "transform-docs.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

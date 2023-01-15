@@ -1,10 +1,5 @@
 {
     "window.title": "${activeEditorShort} — api-docs",
-    "haxe.configurations": [
-        [
-            "completion.hxml"
-        ]
-    ],
     "search.exclude": {
         "**/.git": true,
         "**/node_modules": true,
