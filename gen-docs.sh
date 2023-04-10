@@ -13,6 +13,14 @@ ceramic clay setup web --variant use_tilemap
 ceramic clay hxml web --variant use_tilemap > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/tilemap-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
 
+ceramic clay setup web --variant use_ase
+ceramic clay hxml web --variant use_ase > docs.hxml
+$(ceramic haxe) docs.hxml --xml ../../../docs/ase-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
+
+ceramic clay setup web --variant use_ldtk
+ceramic clay hxml web --variant use_ldtk > docs.hxml
+$(ceramic haxe) docs.hxml --xml ../../../docs/ldtk-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
+
 ceramic clay setup web --variant use_ui
 ceramic clay hxml web --variant use_ui > docs.hxml
 $(ceramic haxe) docs.hxml --xml ../../../docs/ui-plugin.xml -D doc-gen -D documentation -D dox_events --no-output -D no-compilation
